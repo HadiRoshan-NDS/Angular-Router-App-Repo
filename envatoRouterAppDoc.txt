@@ -1,0 +1,49 @@
+We have created a new project for practicing routes. We could add the
+router to our existing wish list, however, if we ever plan on creating a 
+single-page application, even if we don't intend to use the routing 
+capabilities up front, it makes sense to go ahead and just create the 
+project using the router. 
+
+When the project is created, we will create a couple of components which
+represent individual pages that we will navigate to. We have created the
+first component called first using this command:
+<ng generate component first>
+There are a couple of differences between an application that has the router
+and just a normal application that we have ben working with. 
+
+We first go to the app module file, for the most part everything looks the 
+same, except that we have the AppRoutingModule imported on top, which is a 
+module that contains the routing information. 
+
+Let's go ahead and open the app routing module, it is defined here and 
+importing the router module and the forRoot, and the routes are being
+passed to this and then exports the router module. The routes variable
+here is an array of objects that essentially defines our routes. At the
+most basic level, there will be two properties, there will be the path 
+which is essentially the URL and the component that we want that path 
+to route to. If we pay attention to the path, we don't need to type a
+slash before it; because the paths are all relative to our application.
+When we open up the web app, if we go to the first route and second route,
+on the bottom left corner of the page, first works and second works appears.
+
+The idea behind routing is we have a URL, and then our Angular application 
+is going to handle that URL and it's going to route it to a component that
+is essentially a different page. In this particular case it looks like the 
+majority of the pages are the same and that's because the app component is
+still being loaded, the home template is being loaded. At the bottom of the
+template file, there is a <router-outlet> element. This is an important
+component because this essentially tells the Angular router where to load
+the component that we are navigating to. 
+
+If we go to the root of our aplication and do not add first or second in 
+the URL, it's not going to render a route like first or second. But we can
+change that by specifying a different route, if we don't have anything for
+a path (like this: ''), that is going to be our homepage. So for example
+we can set the first component for our homepage. 
+
+We have defined two components and routes so far which the user can visit.
+However, if the user tries to access a route that doesn't exist, they are
+not going to encounter any errors, but that's not ideal. We'll look at how
+to handle those undefined routes in the next section.
+
+
